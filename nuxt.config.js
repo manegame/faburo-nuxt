@@ -26,7 +26,8 @@ module.exports = {
   ** Plugins
   */
   plugins: [
-    { src: '~/plugins/vue-prismic.js', ssr: false }
+    { src: '~/plugins/vue-prismic.js', ssr: false },
+    { src: '~/plugins/vue-cookie.js', ssr: false }
   ],
   /*
   ** Build configuration
@@ -36,6 +37,10 @@ module.exports = {
     ** Run ESLint on save
     */
     extend (config, { isDev, isClient }) {
+      // Allow Rich Fields for Prismic
+      config.resolve.alias['vue$'] = 'vue/dist/vue.esm.js'
+      config.resolve.extensions = ['*', '.js', '.vue', '.json']
+      // 
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',

@@ -5,7 +5,7 @@ export default function (doc) {
     return '/'
   }
   // If it is a Repeatable Custom Type with the API ID of "page" (must contain a UID field)
-  if (doc.type === 'page') {
+  if (doc.type === 'voorpagina') {
     return '/page/' + doc.uid
   }
  
