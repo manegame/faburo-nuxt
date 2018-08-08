@@ -1,3 +1,5 @@
+const Prismic = require('prismic-javascript')
+
 module.exports = {
   /*
   ** Headers of the page
@@ -30,6 +32,26 @@ module.exports = {
     { src: '~/plugins/vue-cookie.js', ssr: false }
   ],
   /*
+  ** Generate Dynamic Routes **
+  */
+ generate: {
+  routes: () => {
+    return Prismic.getApi('https://faburo.prismic.io/api/v2')
+      .then(api => {
+        return api.query(
+          Prismic.Predicates.at('document.type', 'page'),
+          { orderings: '[my.page.date desc]' }
+        )
+      })
+      .then((res) => {
+        console.log(res)
+        return res.results.map((page) => {
+          return page.uid
+        })
+      })
+    }
+  },
+  /*
   ** Build configuration
   */
   build: {
@@ -52,4 +74,3 @@ module.exports = {
     }
   }
 }
-

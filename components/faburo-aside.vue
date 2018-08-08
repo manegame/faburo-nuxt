@@ -8,7 +8,7 @@
       <figcaption class='menu__head__subtitle'>Neemt werk uit handen</figcaption>
     </nuxt-link>
     <div class='menu__pages'>
-      <nuxt-link  class='menu__pages__link'
+      <!-- <nuxt-link  class='menu__pages__link'
                   :to='{ name: "wie-zijn-wij" }'>
         Wie zijn wij?
       </nuxt-link>
@@ -18,8 +18,7 @@
       </nuxt-link>
       <nuxt-link  class='menu__pages__link'
                   :to='{ name: "contact" }'>
-        Contact
-      </nuxt-link>
+      </nuxt-link> -->
     </div>
   </aside>
 </template>
