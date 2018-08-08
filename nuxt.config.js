@@ -12,6 +12,10 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Work+Sans:400,600' }
+    ],
+    script: [
+      { src: 'js/prismic-toolbar.js' },
+      { src: 'https://static.cdn.prismic.io/prismic.min.js' }
     ]
   },
   /*
@@ -21,6 +25,9 @@ module.exports = {
   /*
   ** Plugins
   */
+  plugins: [
+    { src: '~/plugins/vue-prismic.js', ssr: false }
+  ],
   /*
   ** Build configuration
   */

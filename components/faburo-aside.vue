@@ -1,7 +1,7 @@
 <template>
   <aside  class='menu'
           role='sidebar'>
-    <nuxt-link  to='/'
+    <nuxt-link  :to='{ name: "index" }'
                 tag='figure'
                 class='menu__head'>
       <img class='menu__head__logo' src='~/static/logo.png' />

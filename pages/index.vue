@@ -16,9 +16,35 @@
 
 <script>
 export default {
-  name: 'index'
+  name: 'index',
+  data () {
+    return {
+      fields: {
+        title: null,
+        logo: null,
+        richContent: null
+      }
+    };
+  },
+  methods: {
+    getContent () {
+      console.log(this.$prismic.client)
+      this.$prismic.client.getSingle('home')
+        .then((document) => {
+          this.fields.title = document.data.title;
+          this.fields.logo = document.data.logo;
+          this.fields.richContent = document.data.rich_content;
+        })
+    }
+  },
+  created () {
+    // console.log('created')
+    this.getContent();
+  }
 }
 </script>
+
+
 
 
 <style lang='scss'>
