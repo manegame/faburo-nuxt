@@ -1,46 +1,37 @@
 <template>
   <div class='page'>
-    <h1>Titel</h1>
+    <prismic-rich-text :field='fields.title' />
+    <prismic-rich-text :field='fields.inhoud' />
   </div>
 </template>
 
 <script>
-import Prismic from 'prismic-javascript'
-
 export default {
   name: 'faburo-page',
-  data() {
+  data () {
     return {
-      myRoutes: []
+      fields: {
+        titel: null,
+        inhoud: null
+      }
     }
   },
-  methods: {
-    logRoutes() {
-      console.log(this.getRoutes())
-    },
-    getRoutes() {
-      return Prismic.getApi('https://faburo.prismic.io/api/v2')
-        .then(api => {
-          return api.query(
-            Prismic.Predicates.at('document.type', 'page'),
-            { orderings: '[my.page.date desc]' }
-          )
-        })
-        .then((res) => {
-          console.log(res)
-          return res.results.map((page) => {
-            return page.uid
-          })
-        })
-    }
-  },
-  created() {
-    // this.getRoutes()
-    this.logRoutes()
+  created () {
+    console.log(this.$route)
+    this.$prismic.client.getByUID('page', this.$route.params.page).then(document => {
+      this.fields.titel = document.data.titel[0]
+      this.fields.inhoud = document.data.inhoud
+    })
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '~/assets/variables.scss';
 
+.page {
+  a {
+    color: $theme;
+  }
+}
 </style>

@@ -44,7 +44,6 @@ module.exports = {
         )
       })
       .then((res) => {
-        console.log(res)
         return res.results.map((page) => {
           return page.uid
         })

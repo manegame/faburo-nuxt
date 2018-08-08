@@ -19,6 +19,9 @@ export default {
   components: {
     FaburoFooter,
     FaburoAside
+  },
+  beforeUpdate() {
+    console.log('updated sidebar')
   }
 }
 </script>
@@ -26,6 +29,7 @@ export default {
 
 <style lang='scss'>
 @import '~/assets/variables.scss';
+
 html {
   font-family: $main;
   font-size: 16px;

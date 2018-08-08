@@ -19,6 +19,9 @@ export default {
       documentId: ''
     }
   },
+  async fetch ({ store }) {
+    await store.dispatch('pages/GET_PAGES')
+  },
   methods: {
     getContent () {
       console.log(this.$prismic.client)

@@ -8,24 +8,26 @@
       <figcaption class='menu__head__subtitle'>Neemt werk uit handen</figcaption>
     </nuxt-link>
     <div class='menu__pages'>
-      <!-- <nuxt-link  class='menu__pages__link'
-                  :to='{ name: "wie-zijn-wij" }'>
-        Wie zijn wij?
-      </nuxt-link>
       <nuxt-link  class='menu__pages__link'
-                  :to='{ name: "tarieven" }'>
-        Tarieven
+                  v-for='page in pages'
+                  :key='page.id'
+                  :to='"/" + page.uid'>
+        {{page.data.titel[0].text}}
       </nuxt-link>
-      <nuxt-link  class='menu__pages__link'
-                  :to='{ name: "contact" }'>
-      </nuxt-link> -->
     </div>
   </aside>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  name: 'faburo-aside'
+  name: 'faburo-aside',
+  computed: {
+    pages() {
+      return this.$store.state.pages.pages
+    }
+  }
 }
 </script>
 
@@ -63,6 +65,8 @@ export default {
   }
 
   &__pages {
+    position: absolute;
+    bottom: 0;
     background-color: $theme-light;
     color: #000;
     padding: 12px 0;
