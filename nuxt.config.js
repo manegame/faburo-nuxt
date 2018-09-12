@@ -25,6 +25,12 @@ module.exports = {
   */
   loading: { color: '#00ff8b' },
   /*
+  ** Styles
+  */
+ css: [
+  { src: '~/assets/global.scss', lang: 'scss' }
+ ],
+  /*
   ** Plugins
   */
   plugins: [

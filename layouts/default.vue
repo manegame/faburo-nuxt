@@ -1,24 +1,21 @@
 <template>
   <div class='faburo'>
-    <div class='faburo__content'>
-      <faburo-aside role='sidebar' />
-      <div  role="main"
-            class='faburo__content__page'>
+    <faburo-menu />
+    <div class='faburo__page'>
         <nuxt />
-      </div>
     </div>
     <faburo-footer />
   </div>
 </template>
 
 <script>
+import FaburoMenu from '~/components/faburo-menu'
 import FaburoFooter from '~/components/faburo-footer'
-import FaburoAside from '~/components/faburo-aside'
 
 export default {
   components: {
-    FaburoFooter,
-    FaburoAside
+    FaburoMenu,
+    FaburoFooter
   },
   beforeUpdate() {
     console.log('updated sidebar')
@@ -29,6 +26,8 @@ export default {
 
 <style lang='scss'>
 @import '~/assets/variables.scss';
+
+$menu-height: $logo-height + $theme-padding * 2;
 
 html {
   font-family: $main;
@@ -47,20 +46,9 @@ html {
 }
 
 .faburo {
-  min-height: 100vh;
-
-  &__content {
-    display: flex;
-    flex-direction: column nowrap;
-
-    &__page {
-      float: left;
-      clear: right;
-      overflow:hidden;
-      flex: 1;
-      background: #fff;
-      padding: 40px 60px;
-    }
+  &__page {
+    min-height: 100vh;
+    padding: $menu-height + $theme-padding $theme-padding * 2 60px;
   }
 }
 </style>

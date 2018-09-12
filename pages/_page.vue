@@ -28,10 +28,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/variables.scss';
+@import '~/assets/global.scss';
 
 .page {
-  a {
-    color: $theme;
-  }
+
 }
 </style>
