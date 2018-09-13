@@ -2,7 +2,7 @@
   <div class='faburo'>
     <faburo-menu />
     <div class='faburo__page'>
-        <nuxt />
+        <nuxt class='faburo__page__content' />
     </div>
     <faburo-footer />
   </div>
@@ -26,6 +26,7 @@ export default {
 
 <style lang='scss'>
 @import '~/assets/variables.scss';
+@import '~/assets/helpers/_responsive.scss';
 
 $menu-height: $logo-height + $theme-padding * 2;
 
@@ -49,6 +50,16 @@ html {
   &__page {
     min-height: 100vh;
     padding: $menu-height + $theme-padding $theme-padding * 2 60px;
+
+    &__content {
+      width: 760px;
+      margin: 0 auto;
+
+      @include screen-size('small') {
+        width: 100%;
+      }
+    }
+
   }
 }
 </style>

@@ -4,3 +4,11 @@ $theme: #00ff6a;
 $theme-light: #d8ffe0;
 $theme-padding: 20px;
 $logo-height: 70px;
+
+$breakpoints: (
+  'small': (max-width: 800px),
+  'medium': (max-width: 1280px),
+  'large': (max-width: 1600px),
+  'short': (max-height: 700px),
+  'tall': (min-height: 800px)
+);

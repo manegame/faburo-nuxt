@@ -13,6 +13,8 @@
                   :to='"/" + page.uid'>
         {{page.data.titel[0].text}}
       </nuxt-link>
+      <nuxt-link  class='menu__links__link'
+                  to='/contact'>Contact</nuxt-link>
     </div>
   </header>
 </template>

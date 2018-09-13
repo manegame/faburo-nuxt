@@ -12,7 +12,7 @@
                 value="contact" />
       <label    class='contact__form__label'
                 for="name">
-        Name:
+        Naam:
       </label>
       <input    class='contact__form__field'
                 name="name"
@@ -30,7 +30,7 @@
                 id="email" />
       <label    class="contact__form__label"
                 for="message">
-        Message:
+        Bericht:
       </label>
       <textarea class="contact__form__field"
                 name="message"
@@ -50,12 +50,17 @@ export default {
 
 <style scoped lang='scss'>
 @import 'assets/variables.scss';
+@import 'assets/helpers/_mixins.scss';
+@import 'assets/helpers/_responsive.scss';
 
 .contact {
   color: black;
 
   &__form {
-    width: 100%;
+    &__field {
+      display: block;
+      width: 100%;
+    }
 
     &__hidden {
       display: none;

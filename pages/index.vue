@@ -42,6 +42,11 @@ export default {
 </script>
 
 <style lang='scss'>
+@import '~/assets/variables.scss';
+@import '~/assets/global.scss';
+@import '~/assets/helpers/_mixins.scss';
+@import '~/assets/helpers/_responsive.scss';
+
 .index {
   &__inleiding {
     max-width: 80ch;
