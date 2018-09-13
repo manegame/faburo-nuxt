@@ -11,8 +11,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-@import 'assets/style/variables.scss';
-@import 'assets/style/mixins.scss';
 
 .thanks {
   color: black;
