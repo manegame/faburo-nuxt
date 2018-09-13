@@ -2,7 +2,7 @@
   <div class='contact'>
     <form class='contact__form'
           name="contact"
-          action="/thanks"
+          action="/"
           method="post"
           netlify-honeypot="bot-field"
           netlify>
