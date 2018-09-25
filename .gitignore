@@ -12,3 +12,5 @@ dist
 
 # Wordpress
 wordpress
+
+sendgrid.env

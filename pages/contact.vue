@@ -1,50 +1,53 @@
 <template>
   <div class='contact'>
-    <form class='contact__form'
-          name="contact"
-          action="/"
-          method="post"
-          netlify-honeypot="bot-field"
-          netlify>
-      <input    class='contact__form__hidden'
-                type="hidden"
-                name="form-name"
-                value="contact" />
-      <label    class='contact__form__label'
-                for="name">
-        Naam:
-      </label>
-      <input    class='contact__form__field'
+    <form action="https://formspree.io/manusnijhoff@gmail.com"
+          method="POST">
+        <input  type="text" 
                 name="name"
-                id="name" />
-      <!-- Watch out for bots -->
-      <p class="contact__form__hidden">     
-        <label>Don’t fill this out: <input name="bot-field"></label>
-      </p>
-      <label    class="contact__form__label" 
-                for="email">
-        Email:
-      </label>
-      <input    class="contact__form__field"
-                name="email"
-                id="email" />
-      <label    class="contact__form__label"
-                for="message">
-        Bericht:
-      </label>
-      <textarea class="contact__form__field"
-                name="message"
-                id="message"></textarea>
-      <input    class="contact__form__button"
-                type="submit"
-                value="Send message" />
+                placeholder="Naam">
+        <input  type="email" 
+                name="_replyto"
+                placeholder="Mail">
+        <textarea name='message'
+                  placeholder='message'></textarea>
+        <input type="submit" value="Send">
     </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+// import sgMail from '@sendgrid/mail'
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 export default {
-  name: 'contact'
+  name: 'contact',
+  data () {
+    return {
+      name: '',
+      email: '',
+      message: ''
+    }
+  },
+  methods: {
+    sendMail () {
+      const msg = {
+        to: 'manusnijhoff@gmail.com',
+        from: this.email,
+        subject: this.name + ' zoekt contact met Faburo',
+        text: this.message,
+        html: '<strong>' + this.message + '</strong>'
+      }
+      // axios.post('https://api.sendgrid.com/v3/mail/send', msg)
+      axios({
+        method: 'post',
+        url: 'https://api.sendgrid.com/v3/mail/send',
+        data: msg
+      }).then(result => {
+        console.log(result)
+      })
+    }
+  }
 }
 </script>
 
