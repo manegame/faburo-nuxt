@@ -16,38 +16,9 @@
 </template>
 
 <script>
-import axios from 'axios'
-// import sgMail from '@sendgrid/mail'
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 export default {
-  name: 'contact',
-  data () {
-    return {
-      name: '',
-      email: '',
-      message: ''
-    }
-  },
-  methods: {
-    sendMail () {
-      const msg = {
-        to: 'manusnijhoff@gmail.com',
-        from: this.email,
-        subject: this.name + ' zoekt contact met Faburo',
-        text: this.message,
-        html: '<strong>' + this.message + '</strong>'
-      }
-      // axios.post('https://api.sendgrid.com/v3/mail/send', msg)
-      axios({
-        method: 'post',
-        url: 'https://api.sendgrid.com/v3/mail/send',
-        data: msg
-      }).then(result => {
-        console.log(result)
-      })
-    }
-  }
+  name: 'contact'
 }
 </script>
 
