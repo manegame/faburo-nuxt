@@ -49,7 +49,7 @@ html {
 .faburo {
   &__page {
     min-height: 100vh;
-    padding: $menu-height + $theme-padding $theme-padding * 2 60px;
+    padding: $menu-height + $theme-padding * 2 $theme-padding * 2;
 
     &__content {
       width: 760px;
