@@ -62,7 +62,6 @@ export default {
   }
 
   &__submit {
-    background-color: #fff;
     padding: 2px 12px;
     font-family: $main;
     font-size: $font-size-s;
@@ -70,6 +69,8 @@ export default {
     border: none;
     border-radius: 2px;
     padding: 2px 12px;
+    background-color: $theme-light;
+    cursor: pointer;
 
     &:active,
     &:focus {
@@ -91,10 +92,15 @@ export default {
         border: 1px solid #eee;
         background-color: #ddd;
 
+
         &:focus {
           outline: 1px solid #aaa;
           border-radius: 2px;
         }
+      }
+
+      &__submit {
+        background-color: #fff;
       }
     }
   }
