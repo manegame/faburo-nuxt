@@ -6,7 +6,14 @@
       <img class='menu__head__logo' src='~/static/logo.png' />
       <figcaption class='menu__head__subtitle'>Neemt werk uit handen</figcaption>
     </nuxt-link>
-    <div class='menu__links'>
+    <a  class='menu__toggle'
+        @click='menuOpen = !menuOpen'
+        v-html='menuOpen ? "sluit" : "menu"'></a>
+    <div  class='menu__links'
+          :class='{ 
+            "menu__links--mobile": windowWidth < 425,
+            "menu__links--open": menuOpen
+          }'>
       <nuxt-link  class='menu__links__link'
                   v-for='page in pages'
                   :key='page.id'
@@ -24,16 +31,34 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'faburo-menu',
+  data () {
+    return {
+      menuOpen: false,
+      windowWidth: null
+    }
+  },
   computed: {
     pages() {
       return this.$store.state.pages.pages
     }
+  },
+  methods: {
+    setSize () {
+      this.windowWidth = window.innerWidth
+    }
+  },
+  mounted () {
+    window.addEventListener('resize', this.setSize)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.setSize)
   }
 }
 </script>
 
 <style lang='scss'>
 @import '~/assets/variables.scss';
+@import '~/assets/helpers/_responsive.scss';
 
 .menu {
   width: 100vw;
@@ -41,17 +66,26 @@ export default {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  float: left;
-  clear: left;
   padding: $theme-padding $theme-padding * 2;
   background: $theme-light;
   position: fixed;
+  z-index: 10;
+
+  @include screen-size('small') {
+    flex-flow: row wrap;
+    padding: $theme-padding $theme-padding;
+  }
 
   &__head {
     cursor: pointer;
 
     &__logo {
+      display: block;
       height: $logo-height;
+
+      @include screen-size('small') {
+        height: $logo-height * 0.75;
+      }
     }
 
     &__subtitle {
@@ -63,6 +97,15 @@ export default {
     }
   }
 
+  &__toggle {
+    display: none;
+    cursor: pointer;
+
+    @include screen-size('small') {
+      display: block;
+    }
+  }
+
   &__links {
     background-color: $theme-light;
     color: #000;
@@ -70,6 +113,23 @@ export default {
     border-radius: 2px;
     display: flex;
     flex-flow: row nowrap;
+
+    @include screen-size('small') {
+      background-color: transparent;
+      width: 100%;
+      padding-left: 0;
+      padding-bottom: 0;
+      padding-right: 0;
+      padding-top: $theme-padding;
+
+      &--mobile {
+        display: none;
+
+        &.menu__links--open {
+          display: block;
+        }
+      }
+    }
 
     &__link {
       padding: 6px 24px;
@@ -81,8 +141,19 @@ export default {
       font-weight: 600;
       transition: background 0.2s ease;
 
+      @include screen-size('small') {
+        padding-top: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+        padding-right: 12px;
+      }
+
       &:hover {
         background-color: #fff;
+
+        @include screen-size('small') {
+          background-color: transparent;
+        }
       }
 
       &:active {

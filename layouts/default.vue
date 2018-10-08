@@ -16,9 +16,6 @@ export default {
   components: {
     FaburoMenu,
     FaburoFooter
-  },
-  beforeUpdate() {
-    console.log('updated sidebar')
   }
 }
 </script>
@@ -50,12 +47,39 @@ html {
   &__page {
     min-height: 100vh;
     padding: $menu-height + $theme-padding * 2 $theme-padding * 2;
+    position: relative;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d8ffe0+83,ffffff+99 */
+    background: #d8ffe0; /* Old browsers */
+    background: -moz-linear-gradient(bottom, #d8ffe0 20px, #ffffff 120px); /* FF3.6-15 */
+    background: -webkit-linear-gradient(bottom, #d8ffe0 20px,#ffffff 120px); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to top, #d8ffe0 20px,#ffffff 120px); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8ffe0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: $theme-padding * 2;
+      right: $theme-padding * 3;
+      width: 180px;
+      height: 120px;
+      background-image: url('/bg-logo.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom left;
+
+      @include screen-size('small') {
+        width: 80px;
+        height: 40px;
+      }
+    }
 
     &__content {
       width: 760px;
       margin: 0 auto;
 
-      @include screen-size('small') {
+      @include screen-size('medium') {
         width: 100%;
       }
     }

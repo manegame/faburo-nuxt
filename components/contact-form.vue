@@ -1,7 +1,7 @@
 <template>  
   <form class='contact'
         :class='{"contact--bw": palet === "bw"}'
-        action="https://formspree.io/manusnijhoff@gmail.com"
+        action="https://formspree.io/info@faburo.nl"
         method="POST">
       <input  class='contact__field'
               type="text" 

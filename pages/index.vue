@@ -24,9 +24,9 @@ export default {
   },
   methods: {
     getContent () {
-      console.log(this.$prismic.client)
       this.$prismic.client.getSingle('home')
         .then((document) => {
+          this.fields.hero = document.data.hero
           this.fields.title = document.data.title
           this.fields.logo = document.data.logo
           this.fields.richContent = document.data.rich_content

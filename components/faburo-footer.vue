@@ -13,11 +13,14 @@
       <br>
       <br>
       <nuxt-link to='/privacy'>
-        Privacy Statement
+        Privacy en cookies
       </nuxt-link>
     </div>
     <div class='col r'>
       <contact-form :palet='"bw"' />
+      <div class='contact'>
+        <p class='contact__text'>Bereik ons ook via <a href='tel:+31207370909'><i class="fas fa-phone-square"></i></a> of <a href='https://wa.me/31612169637'><i class="fab fa-whatsapp"></i></a></p>
+      </div>
     </div>
   </footer>
 </template>
@@ -70,6 +73,21 @@ footer {
 
     &.r {
       padding-right: $theme-padding * 3;
+    }
+
+    .contact {
+      padding: $theme-padding 0;
+
+      i {
+        color: #777;
+        padding: 0 2px;
+        transition: color 0.3s ease-out;
+        cursor: pointer;
+
+        &:hover {
+          color: $theme;
+        }
+      }
     }
   }
 }

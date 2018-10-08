@@ -1,4 +1,8 @@
 @import './variables.scss';
+@import './helpers/responsive';
+@import "./helpers/fontawesome/fontawesome.scss";
+@import "./helpers/fontawesome/solid.scss";
+@import "./helpers/fontawesome/brands.scss";
 
 a {
   color: $theme-dark;
@@ -6,10 +10,15 @@ a {
 
   &:hover {
     color: $theme;
+
+    @include screen-size('small') {
+      background-color: transparent;
+    }
   }
 
   &:active {
     color: $theme-light;
+
   }
 }
 
