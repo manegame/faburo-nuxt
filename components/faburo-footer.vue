@@ -15,9 +15,11 @@
       <nuxt-link to='/privacy'>
         Privacy en cookies
       </nuxt-link>
-      <div class='contact'>
-        <p class='contact__text'>Bereik ons ook via <a href='tel:+31207370909'><i class="fas fa-phone-square"></i></a> of <a href='https://wa.me/31612169637'><i class="fab fa-whatsapp"></i></a></p>
-      </div>
+      <br>
+      <br>
+      Faburo is gevestigd te Amsterdam en is ingeschreven bij de Kamer van Koophandel onder nummer 34232030
+      <br>
+      <br>
     </div>
     <div class='col r'>
       <contact-form :palet='"bw"' />
@@ -76,8 +78,6 @@ footer {
     }
 
     .contact {
-      padding: $theme-padding 0;
-
       i {
         color: #777;
         padding: 0 2px;

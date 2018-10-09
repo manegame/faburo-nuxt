@@ -14,9 +14,16 @@
       <textarea class='contact__field contact__field--message'
                 name='message'
                 placeholder='Uw bericht'></textarea>
-      <input  class='contact__submit'
-              type="submit"
-              value="Stuur ons een bericht">
+      <div class='contact__last'>
+        <input  class='contact__last__submit'
+                type="submit"
+                value="Stuur ons een bericht">
+        <p class='contact__last__text'>
+          <a  class='contact__last__text__link'
+              href='tel:+31207370909'><i class="fas fa-phone-square"></i></a>
+          <a  class='contact__last__text__link'
+              href='https://wa.me/31612169637'><i class="fab fa-whatsapp"></i></a></p>
+      </div>
   </form>
 </template>
 
@@ -61,24 +68,41 @@ export default {
     }
   }
 
-  &__submit {
-    padding: 2px 12px;
-    font-family: $main;
-    font-size: $font-size-s;
-    line-height: $line-height-s * 2;
-    border: none;
-    border-radius: 2px;
-    padding: 2px 12px;
-    background-color: $theme-light;
-    cursor: pointer;
+  &__last {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    &:active,
-    &:focus {
-      outline: none;
+    &__submit {
+      padding: 2px 12px;
+      font-family: $main;
+      font-size: $font-size-s;
+      line-height: $line-height-s * 2;
+      border: none;
+      border-radius: 2px;
+      padding: 2px 12px;
+      background-color: $theme-light;
+      color: $theme-black;
+      cursor: pointer;
+  
+      &:active,
+      &:focus {
+        outline: none;
+      }
+  
+      &:hover {
+        background-color: #ddd;
+      }
     }
 
-    &:hover {
-      background-color: #ddd;
+    &__text {
+      padding: 0;
+      font-size: 22px;
+      line-height: 22px;
+
+      &__link {
+        padding-left: 12px;
+      }
     }
   }
 
@@ -99,8 +123,22 @@ export default {
         }
       }
 
-      &__submit {
-        background-color: #fff;
+      &__last {
+        &__submit {
+          background-color: #fff;
+          color: black;
+        }
+
+        &__text {
+          &__link,
+          a i {
+            color: #777;
+
+            &:hover {
+              color: #444;
+            }
+          }
+        }
       }
     }
   }

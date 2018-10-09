@@ -4,6 +4,10 @@
 @import "./helpers/fontawesome/solid.scss";
 @import "./helpers/fontawesome/brands.scss";
 
+* {
+  text-rendering: optimizeLegibility;
+}
+
 a {
   color: $theme-dark;
   transition: color 0.3s ease;
@@ -17,9 +21,15 @@ a {
   }
 
   &:active {
-    color: $theme-light;
+    color: $theme;
 
   }
+}
+
+h1 {
+  margin-bottom: $theme-padding;
+  color: $theme-black;
+  font-weight: 300;
 }
 
 .block-img {
@@ -36,4 +46,5 @@ p {
   line-height: 20px;
   max-width: 80ch;
   padding-bottom: $theme-padding;
+  color: $theme-black;
 }

@@ -1,15 +1,27 @@
 <template>
   <div class='page'>
-    <p>
-    Faburo verbindt zich tot geheimhouding van alle met de administratie van haar klanten samenhangende informatie.<br><br>
-    Faburo werkt rechtstreeks en uitsluitend via beveiligde verbindingen online in de declaratiesoftware van de zorgverlener. Deze software voldoet aan de hoogste mate van beveiliging, waarmee deze ook voor Faburo is gewaarborgd.<br><br>
-    De website Faburo is uitsluitend ter promotie van de eigen dienstverlening. Er worden op geen enkele wijze persoonsgegevens van derden vastgelegd of toegankelijk gemaakt.
-    </p>
+    <prismic-rich-text :field='fields.title' />
+    <prismic-rich-text :field='fields.text' />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'privacy'
+  name: 'privacy',
+  data () {
+    return {
+      fields: {
+        titel: 'Privacy en Cookies',
+        text: null
+      }
+    }
+  },
+  created () {
+    console.log(this.$route)
+    this.$prismic.client.getSingle('privacy').then(document => {
+      this.fields.title = document.data.title
+      this.fields.text = document.data.text
+    })
+  }
 }
 </script>
