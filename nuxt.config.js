@@ -1,5 +1,4 @@
 const Prismic = require('prismic-javascript')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   /*
