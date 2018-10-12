@@ -77,9 +77,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-      config.plugins.push(
-        new CopyWebpackPlugin([{ from: '_redirects' }])
-      )
     }
   }
 }

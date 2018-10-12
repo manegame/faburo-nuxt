@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/manus/.nvm/versions/node/v8.9.0/bin/node /Users/manus/.yarn/bin/yarn.js run build
+  /Users/manus/.nvm/versions/node/v8.9.0/bin/node /Users/manus/.yarn/bin/yarn.js nuxt generate --spa
 
 PATH: 
   /Users/manus/.nvm/versions/node/v8.9.0/bin:/Users/manus/bin:usr/local/bin:~/.composer/vendor/bin:/usr/local/php5/bin:/Users/manus/.yarn/bin:/Users/manus/.config/yarn/global/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/manus/Library/Android/sdk/platform-tools:/Users/manus/Library/Android/sdk/tools
@@ -6879,7 +6879,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c nuxt build
+  Arguments: -c '/Users/manus/Documents/REAL LIFE 17-18/U_N/Faburo/faburo-nuxt/node_modules/.bin/nuxt' generate --spa
   Directory: /Users/manus/Documents/REAL LIFE 17-18/U_N/Faburo/faburo-nuxt
   Output:
   

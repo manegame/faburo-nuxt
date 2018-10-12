@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "copy-webpack-plugin": "^4.5.3",
     "node-sass": "^4.9.2",
     "nuxt": "^1.0.0",
     "prismic-dom": "^2.1.0",
