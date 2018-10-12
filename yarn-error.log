@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/manus/.nvm/versions/node/v8.9.0/bin/node /Users/manus/.yarn/bin/yarn.js nuxt generate --spa
+  /Users/manus/.nvm/versions/node/v8.9.0/bin/node /Users/manus/.yarn/bin/yarn.js run build
 
 PATH: 
-  /Users/manus/.nvm/versions/node/v8.9.0/bin:/Users/manus/.yarn/bin:/Users/manus/.config/yarn/global/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/manus/Library/Android/sdk/platform-tools:/Users/manus/Library/Android/sdk/tools
+  /Users/manus/.nvm/versions/node/v8.9.0/bin:/Users/manus/bin:usr/local/bin:~/.composer/vendor/bin:/usr/local/php5/bin:/Users/manus/.yarn/bin:/Users/manus/.config/yarn/global/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/manus/Library/Android/sdk/platform-tools:/Users/manus/Library/Android/sdk/tools
 
 Yarn version: 
   1.5.1
@@ -29,6 +29,8 @@ npm manifest:
       "precommit": "npm run lint"
     },
     "dependencies": {
+      "axios": "^0.18.0",
+      "copy-webpack-plugin": "^4.5.3",
       "node-sass": "^4.9.2",
       "nuxt": "^1.0.0",
       "prismic-dom": "^2.1.0",
@@ -322,7 +324,7 @@ Lockfile:
     version "0.3.2"
     resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   
-  arrify@^1.0.0:
+  arrify@^1.0.0, arrify@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
   
@@ -415,6 +417,13 @@ Lockfile:
   aws4@^1.2.1, aws4@^1.6.0:
     version "1.7.0"
     resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.7.0.tgz#d4d0e9b9dbfca77bf08eeb0a8a471550fe39e289"
+  
+  axios@^0.18.0:
+    version "0.18.0"
+    resolved "http://registry.npmjs.org/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
+    dependencies:
+      follow-redirects "^1.3.0"
+      is-buffer "^1.1.5"
   
   babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
     version "6.26.0"
@@ -1626,6 +1635,19 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   
+  copy-webpack-plugin@^4.5.3:
+    version "4.5.3"
+    resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.5.3.tgz#14a224d205e46f7a79f7956028e1da6df2225ff2"
+    dependencies:
+      cacache "^10.0.4"
+      find-cache-dir "^1.0.0"
+      globby "^7.1.1"
+      is-glob "^4.0.0"
+      loader-utils "^1.1.0"
+      minimatch "^3.0.4"
+      p-limit "^1.0.0"
+      serialize-javascript "^1.4.0"
+  
   core-js@^2.4.0, core-js@^2.5.0:
     version "2.5.7"
     resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
@@ -1880,7 +1902,7 @@ Lockfile:
     dependencies:
       ms "2.0.0"
   
-  debug@^3.1.0:
+  debug@=3.1.0, debug@^3.1.0:
     version "3.1.0"
     resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
     dependencies:
@@ -1992,6 +2014,13 @@ Lockfile:
       bn.js "^4.1.0"
       miller-rabin "^4.0.0"
       randombytes "^2.0.0"
+  
+  dir-glob@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-2.0.0.tgz#0b205d2b6aef98238ca286598a8204d29d0a0034"
+    dependencies:
+      arrify "^1.0.1"
+      path-type "^3.0.0"
   
   doctrine@^2.1.0:
     version "2.1.0"
@@ -2595,6 +2624,12 @@ Lockfile:
       inherits "^2.0.1"
       readable-stream "^2.0.4"
   
+  follow-redirects@^1.3.0:
+    version "1.5.8"
+    resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.8.tgz#1dbfe13e45ad969f813e86c00e5296f525c885a1"
+    dependencies:
+      debug "=3.1.0"
+  
   for-in@^0.1.3:
     version "0.1.8"
     resolved "https://registry.yarnpkg.com/for-in/-/for-in-0.1.8.tgz#d8773908e31256109952b1fdb9b3fa867d2775e1"
@@ -2800,6 +2835,17 @@ Lockfile:
       object-assign "^4.0.1"
       pify "^2.0.0"
       pinkie-promise "^2.0.0"
+  
+  globby@^7.1.1:
+    version "7.1.1"
+    resolved "https://registry.yarnpkg.com/globby/-/globby-7.1.1.tgz#fb2ccff9401f8600945dfada97440cca972b8680"
+    dependencies:
+      array-union "^1.0.1"
+      dir-glob "^2.0.0"
+      glob "^7.1.2"
+      ignore "^3.3.5"
+      pify "^3.0.0"
+      slash "^1.0.0"
   
   globule@^1.0.0:
     version "1.2.1"
@@ -3071,7 +3117,7 @@ Lockfile:
     dependencies:
       minimatch "^3.0.4"
   
-  ignore@^3.3.3:
+  ignore@^3.3.3, ignore@^3.3.5:
     version "3.3.10"
     resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.10.tgz#0a97fb876986e8081c631160f8f9f389157f0043"
   
@@ -4339,7 +4385,7 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/p-finally/-/p-finally-1.0.0.tgz#3fbcfb15b899a44123b34b6dcc18b724336a2cae"
   
-  p-limit@^1.1.0:
+  p-limit@^1.0.0, p-limit@^1.1.0:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-1.3.0.tgz#b86bd5f0c25690911c7590fcbfc2010d54b3ccb8"
     dependencies:
@@ -4455,6 +4501,12 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/path-type/-/path-type-2.0.0.tgz#f012ccb8415b7096fc2daa1054c3d72389594c73"
     dependencies:
       pify "^2.0.0"
+  
+  path-type@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/path-type/-/path-type-3.0.0.tgz#cef31dc8e0a1a3bb0d105c0cd97cf3bf47f4e36f"
+    dependencies:
+      pify "^3.0.0"
   
   pbkdf2@^3.0.3:
     version "3.0.16"
@@ -6827,7 +6879,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c '/Users/manus/Documents/REAL LIFE 17-18/U_N/Faburo/faburo-nuxt/node_modules/.bin/nuxt' generate --spa
+  Arguments: -c nuxt build
   Directory: /Users/manus/Documents/REAL LIFE 17-18/U_N/Faburo/faburo-nuxt
   Output:
   

@@ -1,4 +1,5 @@
 const Prismic = require('prismic-javascript')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   /*
@@ -76,6 +77,9 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+      config.plugins.push(
+        new CopyWebpackPlugin([{ from: '_redirects' }])
+      )
     }
   }
 }
